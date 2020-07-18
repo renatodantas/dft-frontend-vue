@@ -1,7 +1,7 @@
 {
   "name": "dft-frontend-vue",
   "version": "0.0.1",
-  "description": "Dimensionamento da Força de Trabalho",
+  "description": "Dignus Fortis Thesaurus",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
