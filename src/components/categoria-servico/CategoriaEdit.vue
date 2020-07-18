@@ -39,28 +39,20 @@
   </div>
 </template>
 
-<script>
+<script setup="props, { emit }">
 import { onMounted, watch, ref } from "vue";
 import { useCategorias } from "../../stores/categoria.store";
 
-export default {
-  setup(props, { emit }) {
-    const { itemSelecionado: item, salvar, isEdicao } = useCategorias();
+export const { itemSelecionado: item, salvar, isEdicao } = useCategorias();
 
-    async function salvarItem() {
-      await salvar();
-      // Fecha modal
-      $("#editar-item").modal("hide");
-      // Avisa parent que item foi atualizado
-      emit("atualizado");
-    }
-
-    return {
-      item,
-      isEdicao,
-      salvarItem,
-    };
-  },
+export const salvarItem = async () => {
+  await salvar();
+  // Fecha modal
+  // $("#editar-item").modal("hide");
+  const myModalEl = document.getElementById("editar-item");
+  bootstrap.Modal.getInstance(myModalEl).hide();
+  // Avisa parent que item foi atualizado
+  emit("atualizado");
 };
 </script>
 

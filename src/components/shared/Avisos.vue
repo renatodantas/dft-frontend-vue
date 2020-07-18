@@ -12,7 +12,7 @@
         data-delay="5000"
       >
         <div class="toast-header">
-          <img src="/assets/logo.png" width="22" height="22" class="rounded mr-2" alt="..." />
+          <img src="/logo.png" width="22" height="22" class="rounded mr-2" alt="..." />
           <strong class="mr-auto">
             Bootstrap
           </strong>

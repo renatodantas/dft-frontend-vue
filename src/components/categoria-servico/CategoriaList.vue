@@ -60,48 +60,36 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import { reactive, ref, onMounted } from "vue";
 import { useRouter, useRoute, useLink } from "vue-router";
 import { useCategorias } from "../../stores/categoria.store";
 import { formatMetodologia } from "../../utils/formatadores";
 import CategoriaEdit from "./CategoriaEdit.vue";
 
+export const { paginacao, itens, selecionar, listar, excluir } = useCategorias();
+export { formatMetodologia };
+
+onMounted(() => {
+  listar();
+  const route = useRoute();
+  console.log("Route:", route.query);
+});
+
+export const criarNovo = () => {
+  selecionar({ descricao: "" });
+};
+
+export const confirmarExclusao = async (item) => {
+  if (confirm(`Deseja excluir a categoria: ${item.descricao}?`)) {
+    await excluir(item);
+    listar();
+  }
+};
+
 export default {
   components: {
     CategoriaEdit,
-  },
-  setup() {
-    const { paginacao, itens, selecionar, listar, excluir } = useCategorias();
-    const link = useLink();
-
-    onMounted(() => {
-      listar();
-
-      const route = useRoute();
-      console.log("Route:", route.query);
-    });
-
-    const criarNovo = () => {
-      selecionar({ descricao: "" });
-    };
-
-    const confirmarExclusao = async (item) => {
-      if (confirm(`Deseja excluir a categoria: ${item.descricao}?`)) {
-        await excluir(item);
-        listar();
-      }
-    };
-
-    return {
-      paginacao,
-      itens,
-      listar,
-      selecionar,
-      criarNovo,
-      confirmarExclusao,
-      formatMetodologia,
-    };
   },
 };
 </script>
