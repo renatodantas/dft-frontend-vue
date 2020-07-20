@@ -1,4 +1,9 @@
 /* Global CSS */
+body {
+  font-size: 14px;
+  background-color: #ecf0f5;
+}
+
 tbody tr td {
-  vertical-align: middle !important;
+  vertical-align: middle;
 }

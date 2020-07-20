@@ -20,10 +20,10 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-            <router-link class="nav-link link-color" to="/">Home <span class="sr-only">(current)</span></router-link>
+            <router-link class="nav-link" to="/">Home <span class="sr-only">(current)</span></router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link link-color" href="#">Link</a>
+            <a class="nav-link" href="#">Link</a>
           </li>
           <li class="nav-item dropdown">
             <a
@@ -41,10 +41,6 @@
               <router-link class="dropdown-item" to="/categorias">Categoria de Serviços</router-link>
               <a class="dropdown-item" href="#">Órgãos</a>
               <a class="dropdown-item" href="#">Unidades</a>
-              <a class="dropdown-item" href="#">Entregas</a>
-              <a class="dropdown-item" href="#">Indic. de Produtividade</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
             </div>
           </li>
           <li class="nav-item">
@@ -64,10 +60,12 @@
 
 <style scoped>
 .bg-dft {
-  background-color: #166f88;
-  height: 50px;
+  background-color: #3f51b5;
 }
-.link-color {
-  color: rgb(255, 255, 255, 0.8) !important;
+.nav-link {
+  color: rgba(255, 255, 255) !important;
+}
+.nav-link.disabled {
+  color: rgba(255, 255, 255, 0.3) !important;
 }
 </style>
