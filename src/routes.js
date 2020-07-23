@@ -1,14 +1,14 @@
-import { createRouter, createWebHistory } from "vue-router";
+import { createRouter, createWebHistory } from 'vue-router';
 
 const history = createWebHistory();
 const routes = [
   {
-    path: "/",
-    component: () => import("./components/Home.vue"),
+    path: '/',
+    component: () => import('./components/Home.vue'),
   },
   {
-    path: "/categorias",
-    component: () => import("./components/categoria-servico/CategoriaList.vue"),
+    path: '/categorias',
+    component: () => import('./components/categoria-servico/CategoriaList.vue'),
   },
 ];
 

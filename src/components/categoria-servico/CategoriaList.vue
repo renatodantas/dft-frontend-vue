@@ -74,24 +74,24 @@
 </template>
 
 <script setup>
-import { reactive, ref, onMounted } from "vue";
-import { useRouter, useRoute, useLink } from "vue-router";
-import { useCategorias } from "../../stores/categoria.store";
-import { formatMetodologia } from "../../utils/formatadores";
-import Layout from "../../shared/layout/Layout.vue";
-import Breadcrumb from "../../shared/breadcrumb/Breadcrumb.vue";
-import BreadcrumbItem from "../../shared/breadcrumb/BreadcrumbItem.vue";
-import CategoriaEdit from "./CategoriaEdit.vue";
+import { reactive, ref, onMounted } from 'vue';
+import { useRouter, useRoute, useLink } from 'vue-router';
+import { useCategorias } from '../../stores/categoria.store';
+import { formatMetodologia } from '../../utils/formatadores';
+import Layout from '../../shared/layout/Layout.vue';
+import Breadcrumb from '../../shared/breadcrumb/Breadcrumb.vue';
+import BreadcrumbItem from '../../shared/breadcrumb/BreadcrumbItem.vue';
+import CategoriaEdit from './CategoriaEdit.vue';
 
 // ----------------------------------------------
 
 export const { paginacao, itens, selecionar, listar, excluir } = useCategorias();
 export { formatMetodologia };
-export const titulo = "Categorias de Serviços";
+export const titulo = 'Categorias de Serviços';
 export const breadcrumb = [
-  { label: "Tipificação", route: "/tipificacao" },
+  { label: 'Tipificação', route: '/tipificacao' },
   { separator: true },
-  { label: "Categoria de Serviços" },
+  { label: 'Categoria de Serviços' },
 ];
 
 // ----------------------------------------------
@@ -99,14 +99,14 @@ export const breadcrumb = [
 onMounted(() => {
   listar();
   const route = useRoute();
-  console.log("Route:", route.query);
+  console.log('Route:', route.query);
 });
 
 export const criarNovo = () => {
-  selecionar({ descricao: "" });
+  selecionar({ descricao: '' });
 };
 
-export const confirmarExclusao = async (item) => {
+export const confirmarExclusao = async item => {
   if (confirm(`Deseja excluir a categoria: ${item.descricao}?`)) {
     await excluir(item);
     listar();
