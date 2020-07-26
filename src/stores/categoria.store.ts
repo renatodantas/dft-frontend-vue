@@ -1,14 +1,14 @@
-import { computed, ComputedRef, ref, Ref } from "vue";
-import { useAvisos } from "../stores/aviso.store";
-import { httpDelete, httpGet, httpPost, httpPut } from "../utils/http";
+import { computed, ComputedRef, ref, Ref } from 'vue';
+import { useAvisos } from '../stores/aviso.store';
+import { httpDelete, httpGet, httpPost, httpPut } from '../utils/http';
 
 /**
  * Descrição da entidade.
  */
 interface CategoriaServico {
   id?: number;
-  descricao: string;
-  tipo: string;
+  descricao?: string;
+  tipo?: string;
 }
 
 interface Paginacao<T> {
@@ -25,7 +25,7 @@ interface Paginacao<T> {
   content: T[];
 }
 
-const API = "/categorias-servico";
+const API = '/categorias-servico';
 
 const paginacao: Ref<Paginacao<CategoriaServico>> = ref(null);
 const itens: ComputedRef<CategoriaServico[]> = computed(() => paginacao.value?.content || []);
@@ -43,7 +43,7 @@ async function listar(): Promise<void> {
     const res = await httpGet(API);
     paginacao.value = res.data;
   } catch (err) {
-    msgErro("Erro ao listar categorias", err);
+    msgErro('Erro ao listar categorias', err);
   }
 }
 
@@ -71,22 +71,22 @@ async function salvar(): Promise<void> {
 
 async function criar(): Promise<void> {
   try {
-    console.log("Criando:", itemSelecionado.value);
+    console.log('Criando:', itemSelecionado.value);
     await httpPost(API, itemSelecionado.value);
-    msgInfo("Categoria criada com sucesso");
+    msgInfo('Categoria criada com sucesso');
   } catch (err) {
-    msgErro("Erro ao criar categoria", err);
+    msgErro('Erro ao criar categoria', err);
     throw err;
   }
 }
 
 async function atualizar(): Promise<void> {
   try {
-    console.log("Atualizando:", itemSelecionado.value);
+    console.log('Atualizando:', itemSelecionado.value);
     await httpPut(`${API}/${itemSelecionado.value.id}`, itemSelecionado.value);
-    msgInfo("Categoria atualizada com sucesso");
+    msgInfo('Categoria atualizada com sucesso');
   } catch (err) {
-    msgErro("Erro ao atualizar categoria", err);
+    msgErro('Erro ao atualizar categoria', err);
     throw err;
   }
 }
@@ -94,11 +94,11 @@ async function atualizar(): Promise<void> {
 async function excluir(item: CategoriaServico): Promise<void> {
   try {
     const itemExclusao = item || itemSelecionado.value;
-    console.log("Excluindo:", itemExclusao);
+    console.log('Excluindo:', itemExclusao);
     await httpDelete(`${API}/${itemExclusao.id}`);
-    msgInfo("Categoria excluída com sucesso");
+    msgInfo('Categoria excluída com sucesso');
   } catch (err) {
-    msgErro("Erro ao excluir categoria", err);
+    msgErro('Erro ao excluir categoria', err);
     throw err;
   }
 }

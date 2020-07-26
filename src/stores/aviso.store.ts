@@ -1,9 +1,9 @@
-import { computed, ref, Ref, watch } from "vue";
+import { computed, ref, Ref, watch } from 'vue';
 
 interface Aviso {
-  tipo: 'info' | 'error',
-  mensagem: string,
-  excepton?: any
+  tipo: 'info' | 'error';
+  mensagem: string;
+  excepton?: any;
 }
 
 // Lista de mensagens
@@ -27,7 +27,7 @@ watch(avisos, (messages, oldMessages) => {
       console.log(toast);
       const t = new bootstrap.Toast(toast, undefined);
       console.log('Toast:', t);
-      // t.show();
+      t.show();
     });
 
     // var toastList = toastElList.map(function (toastEl) {
@@ -65,7 +65,7 @@ function msgErro(mensagem: string, err?: any) {
  */
 function agendarRemocao(message: string) {
   setTimeout(() => {
-    avisos.value = avisos.value.filter((a) => a.mensagem != message);
+    avisos.value = avisos.value.filter(a => a.mensagem != message);
   }, TIMEOUT);
 }
 
@@ -73,6 +73,6 @@ export function useAvisos() {
   return {
     avisos: computed(() => avisos.value),
     msgInfo,
-    msgErro
+    msgErro,
   };
 }

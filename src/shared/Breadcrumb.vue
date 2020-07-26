@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white py-2 pl-3 rounded mb-4 shadow">
+  <div class="bg-white p-2 pl-3 rounded mb-4 shadow-sm">
     <i class="fa fa-fw fa-home pr-2"></i>
     <span v-for="{ label, route, separator } of itens" :key="label + separator" class="px-1">
       <router-link v-if="route" :to="route">{{ label }}</router-link>
@@ -10,7 +10,7 @@
 </template>
 
 <script setup="props" lang="ts">
-import { onMounted } from "vue";
+import { onMounted } from 'vue';
 
 interface BreadcrumbItem {
   label: String;
@@ -24,10 +24,11 @@ declare const props: {
 };
 
 onMounted(() => {
-  console.log("props:::", props.modelValue);
+  console.log('props:::', props.modelValue);
 });
 
 export const itens = props?.modelValue || [];
+export default {};
 </script>
 
 <style scoped></style>

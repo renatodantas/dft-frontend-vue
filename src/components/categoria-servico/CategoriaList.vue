@@ -73,14 +73,13 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { reactive, ref, onMounted } from 'vue';
 import { useRouter, useRoute, useLink } from 'vue-router';
 import { useCategorias } from '../../stores/categoria.store';
 import { formatMetodologia } from '../../utils/formatadores';
-import Layout from '../../shared/layout/Layout.vue';
-import Breadcrumb from '../../shared/breadcrumb/Breadcrumb.vue';
-import BreadcrumbItem from '../../shared/breadcrumb/BreadcrumbItem.vue';
+import Layout from '../../shared/Layout.vue';
+import Breadcrumb from '../../shared/Breadcrumb.vue';
 import CategoriaEdit from './CategoriaEdit.vue';
 
 // ----------------------------------------------
@@ -117,7 +116,6 @@ export default {
   components: {
     Layout,
     Breadcrumb,
-    BreadcrumbItem,
     CategoriaEdit,
   },
 };

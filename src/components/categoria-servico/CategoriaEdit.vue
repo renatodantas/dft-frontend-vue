@@ -3,7 +3,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">{{ isEdicao ? "Editar" : "Criar " }} Categoria</h5>
+          <h5 class="modal-title">{{ isEdicao ? 'Editar' : 'Criar ' }} Categoria</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -40,8 +40,8 @@
 </template>
 
 <script setup="props, { emit }">
-import { onMounted, watch, ref } from "vue";
-import { useCategorias } from "../../stores/categoria.store";
+import { onMounted, watch, ref } from 'vue';
+import { useCategorias } from '../../stores/categoria.store';
 
 export const { itemSelecionado: item, salvar, isEdicao } = useCategorias();
 
@@ -49,11 +49,13 @@ export const salvarItem = async () => {
   await salvar();
   // Fecha modal
   // $("#editar-item").modal("hide");
-  const myModalEl = document.getElementById("editar-item");
+  const myModalEl = document.getElementById('editar-item');
   bootstrap.Modal.getInstance(myModalEl).hide();
   // Avisa parent que item foi atualizado
-  emit("atualizado");
+  emit('atualizado');
 };
+
+export default {};
 </script>
 
 <style scoped></style>
