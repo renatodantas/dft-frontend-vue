@@ -6,3 +6,7 @@ body {
 tbody tr td {
   vertical-align: middle;
 }
+
+.form-label {
+  font-weight: bold;
+}

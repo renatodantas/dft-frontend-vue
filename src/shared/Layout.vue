@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card shadow">
     <div class="card-header d-flex align-items-center align-middle">
       <router-link class="mr-2" :to="linkVoltar">
         <i class="fa fa-fw fa-arrow-left"></i>

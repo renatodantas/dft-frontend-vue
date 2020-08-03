@@ -23,10 +23,6 @@ declare const props: {
   modelValue: BreadcrumbItem[];
 };
 
-onMounted(() => {
-  console.log('props:::', props.modelValue);
-});
-
 export const itens = props?.modelValue || [];
 export default {};
 </script>

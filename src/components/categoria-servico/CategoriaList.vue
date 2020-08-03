@@ -1,14 +1,18 @@
 <template>
   <div>
-    <Breadcrumb v-model="breadcrumb">
-      <BreadcrumbItem label="Tipificação" route="/tipificacao"></BreadcrumbItem>
-      <BreadcrumbItem separator="true"></BreadcrumbItem>
-      <BreadcrumbItem :label="titulo"></BreadcrumbItem>
-    </Breadcrumb>
+    <Breadcrumb v-model="breadcrumb" />
 
     <Layout :titulo="titulo" linkVoltar="/">
       <template v-slot:direita>
-        <button class="btn btn-primary"><i class="fa fa-fw fa-plus"></i> Incluir</button>
+        <button
+          class="btn btn-primary"
+          title="Incluir nova categoria"
+          data-toggle="modal"
+          data-target="#editar-item"
+          @click="criarNovo()"
+        >
+          <i class="fa fa-fw fa-plus"></i>
+        </button>
       </template>
       <categoria-edit @atualizado="listar" />
 
@@ -94,6 +98,8 @@ export const breadcrumb = [
 ];
 
 // ----------------------------------------------
+
+declare const bootstrap: any;
 
 onMounted(() => {
   listar();

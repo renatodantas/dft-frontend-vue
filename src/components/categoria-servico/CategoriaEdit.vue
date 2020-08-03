@@ -10,16 +10,22 @@
         </div>
         <div class="modal-body">
           <form autocomplete="off" v-if="item">
-            <div class="form-group">
-              <label for="descricao">Descrição</label>
-              <input class="form-control" id="descricao" v-model="item.descricao" />
+            <div class="mb-3">
+              <label class="form-label" for="descricao">Descrição</label>
+              <input
+                class="form-control"
+                id="descricao"
+                v-model="item.descricao"
+                placeholder="Descrição da categoria de serviço"
+              />
             </div>
-            <div class="form-group">
-              <label for="metodologia">Metodologia</label>
+            <div class="mb-3">
+              <label class="form-label" for="metodologia">Metodologia</label>
               <select class="form-control" id="metodologia" v-model="item.tipo">
                 <option value="" disabled>Selecione</option>
                 <option value="TIPICA">Típica</option>
                 <option value="ATIPICA">Atípica</option>
+                <option value="OUTRA">Outra</option>
               </select>
             </div>
           </form>
