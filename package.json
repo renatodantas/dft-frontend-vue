@@ -4,7 +4,10 @@
   "description": "Dignus Fortis Thesaurus",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "backend:restore": "cp backend/db.json.original backend/db.json",
+    "backend:run": "json-server --port 8080 --delay 800 --watch backend/db.json --routes backend/routes.json",
+    "backend": "npm run backend:restore && npm run backend:run"
   },
   "dependencies": {
     "axios": "^0.19.2",
@@ -15,6 +18,7 @@
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.0.0-rc.5",
+    "json-server": "^0.16.1",
     "vite": "^1.0.0-rc.4"
   }
 }

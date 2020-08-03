@@ -1,4 +1,4 @@
-import { computed, ComputedRef, ref, Ref } from 'vue';
+import { computed, ref, Ref } from 'vue';
 import { useAvisos } from '../stores/aviso.store';
 import { httpDelete, httpGet, httpPost, httpPut } from '../utils/http';
 
@@ -11,7 +11,7 @@ interface CategoriaServico {
   tipo?: string;
 }
 
-interface Paginacao<T> {
+/*interface Paginacao<T> {
   empty: boolean;
   first: boolean;
   last: boolean;
@@ -24,11 +24,13 @@ interface Paginacao<T> {
   totalPages: number; // total de páginas
   content: T[];
 }
+*/
 
 const API = '/categorias-servico';
 
-const paginacao: Ref<Paginacao<CategoriaServico>> = ref(null);
-const itens: ComputedRef<CategoriaServico[]> = computed(() => paginacao.value?.content || []);
+//const paginacao: Ref<Paginacao<CategoriaServico>> = ref(null);
+// const itens: ComputedRef<CategoriaServico[]> = computed(() => paginacao.value? || []);
+const itens: Ref<CategoriaServico[]> = ref([]);
 const itemSelecionado: Ref<CategoriaServico> = ref(null);
 const isEdicao: Ref<boolean> = computed(() => !!itemSelecionado.value?.id);
 const { msgInfo, msgErro } = useAvisos();
@@ -40,8 +42,8 @@ const { msgInfo, msgErro } = useAvisos();
  */
 async function listar(): Promise<void> {
   try {
-    const res = await httpGet(API);
-    paginacao.value = res.data;
+    const res = await httpGet(API + '?_page=0?_limit=10');
+    itens.value = res.data;
   } catch (err) {
     msgErro('Erro ao listar categorias', err);
   }
@@ -105,7 +107,7 @@ async function excluir(item: CategoriaServico): Promise<void> {
 
 export function useCategorias() {
   return {
-    paginacao,
+    // paginacao,
     itens,
     itemSelecionado: computed(() => itemSelecionado.value),
     isEdicao,

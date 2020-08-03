@@ -1,7 +1,6 @@
-
 /**
  * Formata a constante da metologia para um nome mais apresentável.
- * 
+ *
  * @param tipo o nome da constante da metodologia
  */
 export function formatMetodologia(tipo: string) {
@@ -10,7 +9,9 @@ export function formatMetodologia(tipo: string) {
       return 'Típica';
     case 'ATIPICA':
       return 'Atípica';
+    case 'OUTRA':
+      return 'Outra';
     default:
-      return 'Desconhecido';
+      return '(Desconhecido)';
   }
 }

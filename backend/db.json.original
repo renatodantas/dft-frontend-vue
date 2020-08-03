@@ -1,0 +1,154 @@
+{
+  "categorias-servico": [
+    {
+      "id": 1,
+      "descricao": "Categoria 1",
+      "tipo": "TIPICA"
+    },
+    {
+      "id": 2,
+      "descricao": "Categoria 2",
+      "tipo": "ATIPICA"
+    },
+    {
+      "id": 3,
+      "descricao": "Categoria 3",
+      "tipo": "OUTRA"
+    },
+    {
+      "id": 4,
+      "descricao": "Categoria 4",
+      "tipo": "TIPICA"
+    },
+    {
+      "id": 5,
+      "descricao": "Categoria 5",
+      "tipo": "ATIPICA"
+    },
+    {
+      "id": 6,
+      "descricao": "Categoria 6",
+      "tipo": "OUTRA"
+    },
+    {
+      "id": 7,
+      "descricao": "Categoria 7",
+      "tipo": "TIPICA"
+    },
+    {
+      "id": 8,
+      "descricao": "Categoria 8",
+      "tipo": "ATIPICA"
+    },
+    {
+      "id": 9,
+      "descricao": "Categoria 9",
+      "tipo": "OUTRA"
+    },
+    {
+      "id": 10,
+      "descricao": "Categoria 10",
+      "tipo": "TIPICA"
+    },
+    {
+      "id": 11,
+      "descricao": "Categoria 11",
+      "tipo": "ATIPICA"
+    },
+    {
+      "id": 12,
+      "descricao": "Categoria 12",
+      "tipo": "OUTRA"
+    },
+    {
+      "id": 13,
+      "descricao": "Categoria 13",
+      "tipo": "TIPICA"
+    },
+    {
+      "id": 14,
+      "descricao": "Categoria 14",
+      "tipo": "ATIPICA"
+    },
+    {
+      "id": 15,
+      "descricao": "Categoria 15",
+      "tipo": "OUTRA"
+    },
+    {
+      "id": 16,
+      "descricao": "Categoria 16",
+      "tipo": "TIPICA"
+    },
+    {
+      "id": 17,
+      "descricao": "Categoria 17",
+      "tipo": "ATIPICA"
+    },
+    {
+      "id": 18,
+      "descricao": "Categoria 18",
+      "tipo": "OUTRA"
+    },
+    {
+      "id": 19,
+      "descricao": "Categoria 19",
+      "tipo": "TIPICA"
+    },
+    {
+      "id": 20,
+      "descricao": "Categoria 20",
+      "tipo": "ATIPICA"
+    },
+    {
+      "id": 21,
+      "descricao": "Categoria 21",
+      "tipo": "OUTRA"
+    },
+    {
+      "id": 22,
+      "descricao": "Categoria 22",
+      "tipo": "TIPICA"
+    },
+    {
+      "id": 23,
+      "descricao": "Categoria 23",
+      "tipo": "ATIPICA"
+    },
+    {
+      "id": 24,
+      "descricao": "Categoria 24",
+      "tipo": "OUTRA"
+    },
+    {
+      "id": 25,
+      "descricao": "Categoria 25",
+      "tipo": "TIPICA"
+    },
+    {
+      "id": 26,
+      "descricao": "Categoria 26",
+      "tipo": "ATIPICA"
+    },
+    {
+      "id": 27,
+      "descricao": "Categoria 27",
+      "tipo": "OUTRA"
+    },
+    {
+      "id": 28,
+      "descricao": "Categoria 28",
+      "tipo": "TIPICA"
+    },
+    {
+      "id": 29,
+      "descricao": "Categoria 29",
+      "tipo": "ATIPICA"
+    },
+    {
+      "id": 30,
+      "descricao": "Categoria 30",
+      "tipo": "OUTRA"
+    }
+  ]
+}
