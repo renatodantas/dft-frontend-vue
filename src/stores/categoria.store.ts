@@ -11,6 +11,13 @@ interface CategoriaServico {
   tipo?: string;
 }
 
+interface Paginacao {
+  sort?: string;
+  order?: 'asc' | 'desc';
+  page?: number;
+  limit?: number;
+}
+
 /*interface Paginacao<T> {
   empty: boolean;
   first: boolean;
@@ -40,9 +47,16 @@ const { msgInfo, msgErro } = useAvisos();
 /**
  * Obtém todas as categorias na API.
  */
-async function listar(): Promise<void> {
+async function listar(params?: Paginacao): Promise<void> {
   try {
-    const res = await httpGet(API + '?_page=0?_limit=10');
+    const queryParams: string[] = [];
+    if (params?.sort) queryParams.push('_sort=' + params.sort);
+    if (params?.order) queryParams.push('_order=' + params.order);
+    if (params?.page) queryParams.push('_page=' + params.page);
+    if (params?.limit) queryParams.push('_limit=' + params.limit);
+
+    console.log('Params:', queryParams);
+    const res = await httpGet(API + '?' + queryParams.join('&'));
     itens.value = res.data;
   } catch (err) {
     msgErro('Erro ao listar categorias', err);

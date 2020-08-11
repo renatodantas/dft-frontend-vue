@@ -28,7 +28,12 @@
       <table class="table table-hover table-bordeless">
         <thead>
           <tr>
-            <th>Nome</th>
+            <th>
+              Nome
+              <a href="#" @click="ordenar()">
+                <i class="fa fa-fw fa-caret-down"></i>
+              </a>
+            </th>
             <th>Tipo</th>
             <th></th>
           </tr>
@@ -78,7 +83,7 @@
 </template>
 
 <script setup lang="ts">
-import { reactive, ref, onMounted } from 'vue';
+import { reactive, ref, onMounted, watch } from 'vue';
 import { useRouter, useRoute, useLink } from 'vue-router';
 import { useCategorias } from '../../stores/categoria.store';
 import { formatMetodologia } from '../../utils/formatadores';
@@ -88,7 +93,7 @@ import CategoriaEdit from './CategoriaEdit.vue';
 
 // ----------------------------------------------
 
-export const { paginacao, itens, selecionar, listar, excluir } = useCategorias();
+export const { itens, selecionar, listar, excluir } = useCategorias();
 export { formatMetodologia };
 export const titulo = 'Categorias de Serviços';
 export const breadcrumb = [
@@ -100,11 +105,16 @@ export const breadcrumb = [
 // ----------------------------------------------
 
 declare const bootstrap: any;
+const route = useRoute();
+const router = useRouter();
 
 onMounted(() => {
   listar();
-  const route = useRoute();
-  console.log('Route:', route.query);
+});
+
+watch(route, (newRoute, prevRoute) => {
+  const { sort, order } = <{ sort: string; order: 'asc' | 'desc' }>newRoute.query;
+  listar({ sort, order });
 });
 
 export const criarNovo = () => {
@@ -116,6 +126,10 @@ export const confirmarExclusao = async item => {
     await excluir(item);
     listar();
   }
+};
+
+export const ordenar = () => {
+  router.push('?sort=descricao&order=desc');
 };
 
 export default {
